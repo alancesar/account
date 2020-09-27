@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "160efe7a-3c62-4bbe-b9e9-5ca7b54aae30",
+		"name": "Account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5b591af6-b5d6-464e-b724-af0faf66717d",
+						"exec": [
+							"function generateRandomDocument() {",
+							"  return (Math.floor(Math.random() * (89999)) + 10000).toString();",
+							"}",
+							"",
+							"pm.environment.set('document_number', generateRandomDocument());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8818f52e-ca74-454e-ade2-eccec4f95db9",
+						"exec": [
+							"pm.test(\"Status code should be 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Must have correct document number\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var document_number = pm.environment.get(\"document_number\");",
+							"    pm.expect(json.document_number).to.eql(document_number);",
+							"    ",
+							"    // Set profile_id",
+							"    pm.environment.set(\"account_id\", json.account_id)",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"document_number\": \"{{document_number}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create account with same document",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c6fab216-841a-4406-8030-04a2d0b3c645",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "316a4800-0b75-46ea-af74-58f929cd9afb",
+						"exec": [
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Must have correct error message\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var document_number = pm.environment.get(\"document_number\");",
+							"    pm.expect(json.message).to.eql(document_number + \" already has an account\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"document_number\": \"{{document_number}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "972a4b6f-5332-46b2-800b-5103abefd19e",
+						"exec": [
+							"pm.test(\"Status code should be 201\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Must have correct account id\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var account_id = pm.environment.get(\"account_id\");",
+							"    pm.expect(json.account_id).to.eql(account_id);",
+							"});",
+							"",
+							"pm.test(\"Must have correct document number\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var document_number = pm.environment.get(\"document_number\");",
+							"    pm.expect(json.document_number).to.eql(document_number);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/accounts/:account_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"accounts",
+						":account_id"
+					],
+					"variable": [
+						{
+							"key": "account_id",
+							"value": "{{account_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create transaction \"FOR_CACHE\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3144a20d-0aa0-4a95-b80e-292f286479a5",
+						"exec": [
+							"pm.test(\"Status code should be 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Must have correct amount\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var amount = pm.environment.get(\"amount\");",
+							"    pm.expect(json.amount).to.eql(-123.45);",
+							"});",
+							"",
+							"pm.test(\"Must have correct account id\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var account_id = pm.environment.get(\"account_id\");",
+							"    pm.expect(json.account_id).to.eql(account_id);",
+							"});",
+							"",
+							"pm.test(\"Must have correct operation type\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    pm.expect(json.operation_type).to.eql(\"FOR_CACHE\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_id\": {{account_id}},\n    \"operation_type\": \"FOR_CACHE\",\n    \"amount\": 123.45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create transaction \"PAYMENT\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "069b6a93-64cd-4cba-8ab5-d20f7bd0fb37",
+						"exec": [
+							"pm.test(\"Status code should be 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Must have correct amount\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var amount = pm.environment.get(\"amount\");",
+							"    pm.expect(json.amount).to.eql(123.45);",
+							"});",
+							"",
+							"pm.test(\"Must have correct account id\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var account_id = pm.environment.get(\"account_id\");",
+							"    pm.expect(json.account_id).to.eql(account_id);",
+							"});",
+							"",
+							"pm.test(\"Must have correct operation type\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    pm.expect(json.operation_type).to.eql(\"PAYMENT\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_id\": {{account_id}},\n    \"operation_type\": \"PAYMENT\",\n    \"amount\": 123.45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
