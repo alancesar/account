@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0cae57a7-ff91-4d33-a3f4-979a4b622fd4" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="ProjectId" id="1hvxMcIuV2CTDDldPk1VJZT2lsw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/infra" />
+      <recent name="$PROJECT_DIR$/middleware" />
+      <recent name="$PROJECT_DIR$/account" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build main.go">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="account" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="DB_HOST" value="localhost" />
+        <env name="DB_NAME" value="postgres" />
+        <env name="DB_USERNAME" value="postgres" />
+        <env name="DB_PASSWORD" value="account" />
+        <env name="DB_PORT" value="5432" />
+        <env name="DB_SSL" value="false" />
+      </envs>
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestParseAmount in github.com/alancesar/account/transaction" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="account" />
+      <working_directory value="$PROJECT_DIR$/transaction" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/alancesar/account/transaction" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestParseAmount\E$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build main.go" />
+      <item itemvalue="Go Test.TestParseAmount in github.com/alancesar/account/transaction" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestParseAmount in github.com/alancesar/account/transaction" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="440" y="237" key="#Go_Modules" timestamp="1600905626558">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="440" y="237" key="#Go_Modules/0.0.1280.800@0.0.1280.800" timestamp="1600905626558" />
+    <state x="2129" y="342" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601180073953">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state x="2129" y="342" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601180073953" />
+    <state x="2521" y="412" key="EnvironmentVariablesDialog" timestamp="1601180071852">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state x="2521" y="412" key="EnvironmentVariablesDialog/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601180071852" />
+    <state width="1238" height="264" key="GridCell.Tab.0.bottom" timestamp="1601182050351">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600913088459" />
+    <state width="1238" height="264" key="GridCell.Tab.0.bottom/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050351" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/1920.280.1280.800/0.25.1920.1055@1920.280.1280.800" timestamp="1601175210281" />
+    <state width="1238" height="264" key="GridCell.Tab.0.bottom/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177625095" />
+    <state width="1238" height="264" key="GridCell.Tab.0.center" timestamp="1601182050348">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1600913088458" />
+    <state width="1238" height="264" key="GridCell.Tab.0.center/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050348" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center/1920.280.1280.800/0.25.1920.1055@1920.280.1280.800" timestamp="1601175210279" />
+    <state width="1238" height="264" key="GridCell.Tab.0.center/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177625090" />
+    <state width="1238" height="264" key="GridCell.Tab.0.left" timestamp="1601182050347">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1600913088457" />
+    <state width="1238" height="264" key="GridCell.Tab.0.left/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050347" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left/1920.280.1280.800/0.25.1920.1055@1920.280.1280.800" timestamp="1601175210277" />
+    <state width="1238" height="264" key="GridCell.Tab.0.left/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177625084" />
+    <state width="1238" height="264" key="GridCell.Tab.0.right" timestamp="1601182050349">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1600913088458" />
+    <state width="1238" height="264" key="GridCell.Tab.0.right/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050349" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right/1920.280.1280.800/0.25.1920.1055@1920.280.1280.800" timestamp="1601175210280" />
+    <state width="1238" height="264" key="GridCell.Tab.0.right/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177625093" />
+    <state width="1238" height="264" key="GridCell.Tab.1.bottom" timestamp="1601182050355">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600913088461" />
+    <state width="1238" height="264" key="GridCell.Tab.1.bottom/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050355" />
+    <state width="1238" height="264" key="GridCell.Tab.1.bottom/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177650355" />
+    <state width="1238" height="264" key="GridCell.Tab.1.center" timestamp="1601182050353">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1600913088460" />
+    <state width="1238" height="264" key="GridCell.Tab.1.center/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050353" />
+    <state width="1238" height="264" key="GridCell.Tab.1.center/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177650287" />
+    <state width="1238" height="264" key="GridCell.Tab.1.left" timestamp="1601182050352">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1600913088460" />
+    <state width="1238" height="264" key="GridCell.Tab.1.left/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050352" />
+    <state width="1238" height="264" key="GridCell.Tab.1.left/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177650263" />
+    <state width="1238" height="264" key="GridCell.Tab.1.right" timestamp="1601182050354">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="619" height="264" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1600913088461" />
+    <state width="1238" height="264" key="GridCell.Tab.1.right/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601182050354" />
+    <state width="1238" height="264" key="GridCell.Tab.1.right/1920.280.1280.800/0.25.1920.986@1920.280.1280.800" timestamp="1601177650329" />
+    <state width="640" height="400" key="XDebugger.FullValuePopup" timestamp="1601177516069">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state width="640" height="400" key="XDebugger.FullValuePopup/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601177516069" />
+    <state x="2225" y="404" width="670" height="676" key="search.everywhere.popup" timestamp="1601173884158">
+      <screen x="1920" y="280" width="1280" height="800" />
+    </state>
+    <state x="2225" y="404" width="670" height="676" key="search.everywhere.popup/1920.280.1280.800/0.0.1920.1080@1920.280.1280.800" timestamp="1601173884158" />
+  </component>
+</project>
