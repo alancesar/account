@@ -315,6 +315,70 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create transaction for invalid account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7326aa52-c7be-4d97-98d3-bd674c4bf453",
+						"exec": [
+							"pm.test(\"Status code should be 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Must have correct amount\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var amount = pm.environment.get(\"amount\");",
+							"    pm.expect(json.amount).to.eql(123.45);",
+							"});",
+							"",
+							"pm.test(\"Must have correct account id\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    var account_id = pm.environment.get(\"account_id\");",
+							"    pm.expect(json.account_id).to.eql(account_id);",
+							"});",
+							"",
+							"pm.test(\"Must have correct operation type\", function () {",
+							"    var json = pm.response.json();",
+							"    ",
+							"    pm.expect(json.operation_type).to.eql(\"PAYMENT\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_id\": {{account_id}},\n    \"operation_type\": \"PAYMENT\",\n    \"amount\": 123.45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
