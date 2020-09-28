@@ -20,7 +20,8 @@ docker-compose up --build
 |DB_NAME      |postgres    |
 |DB_USERNAME  |postgres    |
 |DB_PASSWORD  |account     |
-|DB_PORT=5432 |DB_SSL=false|
+|DB_PORT      |5432        |
+|DB_SSL       |false       |
 
 #### Inicie o banco de dados
 
