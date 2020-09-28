@@ -4,7 +4,9 @@ import (
 	"github.com/alancesar/account/account"
 	"github.com/alancesar/account/handler"
 	"github.com/alancesar/account/infra"
+	"github.com/alancesar/account/middleware"
 	"github.com/alancesar/account/transaction"
+	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"os"
 )
@@ -45,9 +47,17 @@ func main() {
 	as := account.NewAccountService(ar)
 	ts := transaction.NewTransactionService(tr)
 
+	// Create server
+	engine := infra.CreateServer(gin.Recovery(), middleware.RequestLogger())
+
+	// Start metrics
+	root := engine.Group("/")
+	handler.StartMetrics(root)
+
+	// Start APIs
+	api := root.Group("/api", middleware.ResponseLogger())
+	handler.StartApi(api, as, ts)
+
 	// Start server
-	engine := infra.CreateServer()
-	api := engine.Group("api")
-	handler.Start(api, as, ts)
 	infra.StartServer(engine)
 }
