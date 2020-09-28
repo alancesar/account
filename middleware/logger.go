@@ -23,51 +23,51 @@ func (w writer) WriteString(s string) (int, error) {
 	return w.ResponseWriter.WriteString(s)
 }
 
-func Logger() gin.HandlerFunc {
+func RequestLogger() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		LogRequest(c)
+		path := c.Request.URL.Path
+		clientIP := c.ClientIP()
+		clientUserAgent := c.Request.UserAgent()
+		referer := c.Request.Referer()
+		method := c.Request.Method
+		requestID := c.Request.Header.Get("x-request-id")
+
+		logrus.WithFields(logrus.Fields{
+			"client_ip":  clientIP,
+			"method":     method,
+			"path":       path,
+			"referer":    referer,
+			"user_agent": clientUserAgent,
+			"request_id": requestID,
+		}).Log(logrus.InfoLevel, "request received")
+
+		c.Next()
+	}
+}
+
+func ResponseLogger() gin.HandlerFunc {
+	return func(c *gin.Context) {
 		logger := &writer{body: bytes.NewBufferString(""), ResponseWriter: c.Writer}
 		c.Writer = logger
 		start := time.Now()
 		c.Next()
-		LogResponse(c, logger, start)
+
+		dataLength := c.Writer.Size()
+		if dataLength < 0 {
+			dataLength = 0
+		}
+		stop := time.Since(start)
+		latency := int(math.Ceil(float64(stop.Nanoseconds()) / 1000000.0))
+		statusCode := c.Writer.Status()
+		body := logger.body.String()
+		requestID := c.Request.Header.Get("x-request-id")
+
+		logrus.WithFields(logrus.Fields{
+			"status_code": statusCode,
+			"data_length": dataLength,
+			"body":        body,
+			"latency":     latency,
+			"request_id":  requestID,
+		}).Log(logrus.InfoLevel, "response sent")
 	}
-}
-
-func LogRequest(c *gin.Context) {
-	path := c.Request.URL.Path
-	clientIP := c.ClientIP()
-	clientUserAgent := c.Request.UserAgent()
-	referer := c.Request.Referer()
-	method := c.Request.Method
-	requestID := c.Request.Header.Get("x-request-id")
-
-	logrus.WithFields(logrus.Fields{
-		"client_ip":  clientIP,
-		"method":     method,
-		"path":       path,
-		"referer":    referer,
-		"user_agent": clientUserAgent,
-		"request_id": requestID,
-	}).Log(logrus.InfoLevel, "request received")
-}
-
-func LogResponse(c *gin.Context, writer *writer, start time.Time) {
-	dataLength := c.Writer.Size()
-	if dataLength < 0 {
-		dataLength = 0
-	}
-	stop := time.Since(start)
-	latency := int(math.Ceil(float64(stop.Nanoseconds()) / 1000000.0))
-	statusCode := c.Writer.Status()
-	body := writer.body.String()
-	requestID := c.Request.Header.Get("x-request-id")
-
-	logrus.WithFields(logrus.Fields{
-		"status_code": statusCode,
-		"data_length": dataLength,
-		"body":        body,
-		"latency":     latency,
-		"request_id":  requestID,
-	}).Log(logrus.InfoLevel, "response sent")
 }
