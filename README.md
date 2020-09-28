@@ -10,6 +10,8 @@ Serviço responsável por cadastro de contas e transções.
 docker-compose up --build
 ```
 
+O serviço será iniciado na porta `8080`.
+
 ### Via IDE
 
 #### Adicione as seguintes variáves de ambiente
@@ -73,7 +75,7 @@ curl --location --request POST 'http://localhost:8080/api/accounts' \
 #### URL
 
 ```
-[POST] /api/accounts/:account_id
+[GET] /api/accounts/:account_id
 ```
 
 #### Resposta
