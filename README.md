@@ -4,18 +4,31 @@ Serviço responsável por cadastro de contas e transções.
 
 ## Executando o projeto
 
-### Subindo o banco de dados
+### Via docker-compose
+
+```sh
+docker-compose up --build
+```
+
+### Via IDE
+
+#### Adicione as seguintes variáves de ambiente
+
+|Nome         |Valor      |
+--------------|-------------
+|DB_HOST      |localhost   |
+|DB_NAME      |postgres    |
+|DB_USERNAME  |postgres    |
+|DB_PASSWORD  |account     |
+|DB_PORT=5432 |DB_SSL=false|
+
+#### Inicie o banco de dados
 
 ```sh
 docker-compose up --build postgres
 ```
 
-### Iniciando a aplicação
-
-```sh
-docker-compose up --build account
-```
-
+Execute o arquivo `main.go`.  
 O serviço será iniciado na porta `8080`.
 
 ## Endpoints
