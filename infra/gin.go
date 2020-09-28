@@ -1,18 +1,15 @@
 package infra
 
 import (
-	"github.com/alancesar/account/middleware"
 	"github.com/gin-gonic/gin"
 )
 
-func CreateServer() *gin.Engine {
+func CreateServer(middlewares ...gin.HandlerFunc) *gin.Engine {
 	engine := gin.New()
-	engine.Use(gin.Recovery())
-	engine.Use(middleware.Logger())
-
+	engine.Use(middlewares...)
 	return engine
 }
 
 func StartServer(engine *gin.Engine) {
-	engine.Run()
+	_ = engine.Run()
 }
